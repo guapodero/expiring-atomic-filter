@@ -1,0 +1,38 @@
+[dependencies]
+derive_builder = "0.20"
+serde = { version = "1", features = ["derive"] }
+
+[dependencies.atomic-cuckoo-filter]
+git = "https://github.com/farhadi/atomic-cuckoo-filter.git"
+rev = "b1d586268475f42cdc230804776c128340a3dad3"
+
+[dev-dependencies]
+ahash = "0.8"
+
+[lib]
+name = "expiring_atomic_filter"
+path = "src/lib.rs"
+
+[lints.rust]
+unsafe_code = "forbid"
+unused_lifetimes = "warn"
+unused_qualifications = "warn"
+unused_results = "warn"
+missing_docs = "warn"
+
+[package]
+autobenches = false
+autobins = false
+autoexamples = false
+autolib = false
+autotests = false
+build = false
+name = "expiring-atomic-filter"
+description = "Thread-safe approximate membership filter with time-based expiration."
+license = "MIT"
+repository = "https://github.com/guapodero/expiring-atomic-filter"
+categories = ["data-structures"]
+keywords = ["filter", "cuckoo-filter", "bloom-filter"]
+exclude = [".github"]
+edition = "2024"
+version = "0.1.0"

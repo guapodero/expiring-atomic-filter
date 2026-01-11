@@ -1,0 +1,40 @@
+[changelog]
+body = """
+
+## [{{ version | trim_start_matches(pat="v") }}]{%- if release_link -%}({{ release_link }}){% endif %}
+_{{ timestamp | date(format="%d %B %Y") }}_
+{% for group, commits in commits | group_by(attribute="group") %}
+{% if group != "chore" -%}
+### {{ group | upper_first }}
+
+{% for commit in commits -%}
+{%- if commit.scope and commit.scope != package -%}
+* *({{commit.scope}})* {% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message | upper_first }}{%- if commit.links %} ({% for link in commit.links %}[{{link.text}}]({{link.href}}) {% endfor -%}){% endif %}
+{% else -%}
+* {% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message | upper_first }}
+{% endif -%}
+{% endfor -%}
+{% endif -%}
+{% endfor -%}
+
+"""
+
+commit_parsers = [
+  { message = "^feat", group = "Added" },
+  { message = "^changed", group = "Changed" },
+  { message = "^fix", group = "Fixed" },
+  { message = "^deprecated", group = "Deprecated" },
+  { message = "^removed", group = "Removed" },
+  { message = "^security", group = "Security" },
+  { message = "^.*", group = "Other" },
+]
+
+[workspace]
+dependencies_update = true
+features_always_increment_minor = true
+release_always = false
+release_commits = "^(feat|changed|fix|removed|security)[(:]"
+
+[[package]]
+name = "expiring_atomic_filter"
+changelog_path = "CHANGELOG.md"
