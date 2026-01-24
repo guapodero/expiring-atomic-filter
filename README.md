@@ -23,6 +23,7 @@ The `ttl` and `expiration_period` determine the number of slots that the filter 
 
 ### Differences from upstream
 This library provides the same interface as atomic-cuckoo-filter.
+[Documentation](https://docs.rs/atomic-cuckoo-filter/latest/atomic_cuckoo_filter/)
 
 NOTES:
 
