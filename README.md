@@ -39,6 +39,12 @@ For bursty workloads, increasing the filter capacity is recommended so that no s
 First please refer to [upstream](https://github.com/farhadi/atomic-cuckoo-filter?tab=readme-ov-file#basic-usage)
 for the basics.
 
+```toml
+[dependencies.expiring-atomic-filter]
+git = "https://github.com/guapodero/expiring-atomic-filter.git"
+rev = "d511f9f"
+```
+
 ```rust
 use expiring_atomic_filter::ExpiringAtomicFilter;
 
