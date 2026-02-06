@@ -40,9 +40,8 @@ First please refer to [upstream](https://github.com/farhadi/atomic-cuckoo-filter
 for the basics.
 
 ```toml
-[dependencies.expiring-atomic-filter]
-git = "https://github.com/guapodero/expiring-atomic-filter.git"
-rev = "d511f9f"
+[dependencies]
+expiring-atomic-filter = "0.1"
 ```
 
 ```rust

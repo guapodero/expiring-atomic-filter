@@ -1,10 +1,7 @@
 [dependencies]
+atomic-cuckoo-filter = "0.3"
 derive_builder = "0.20"
 serde = { version = "1", features = ["derive"] }
-
-[dependencies.atomic-cuckoo-filter]
-git = "https://github.com/farhadi/atomic-cuckoo-filter.git"
-rev = "b1d586268475f42cdc230804776c128340a3dad3"
 
 [dev-dependencies]
 ahash = "0.8"
